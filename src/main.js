@@ -73,7 +73,7 @@ function decompressZip(callback) {
             let index = 0;
             Object.keys(zip.files).forEach(function (filename) {
                 if (!zip.files[filename].dir) {
-                    zip.files[filename].async('string').then(function (fileData) {
+                    zip.files[filename].async('nodebuffer').then(function (fileData) {
                         ++index;
                         var dest = outdir + path.basename(filename);
                         fs.writeFileSync(dest, fileData);
@@ -106,6 +106,7 @@ function modifyIconfont() {
     const matchs = content.match(regex);
     if (matchs.length > 0) {
         const ttfBase64 = fs.readFileSync(ttfOriginPath, "base64");
+        console.log(ttfBase64);
         const replaceContent = `@font-face {\n \tfont-family: "iconfont";\n\tsrc: url('data:application/x-font-woff2;charset=utf-8;base64,${ttfBase64}') format('woff2');\n}`;
         content = content.replace(matchs[0], replaceContent);
         fs.writeFileSync(cssTargetPath, content);
