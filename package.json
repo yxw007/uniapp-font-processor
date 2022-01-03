@@ -3,11 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "repository": "git@github.com:yxw007/uniapp-font-processor.git",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "Potter <aa4790139@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "crc32": ">= 0.2.2",
