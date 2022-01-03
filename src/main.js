@@ -102,7 +102,7 @@ function modifyIconfont() {
     const ttfOriginPath = path.join(originDir, "iconfont.ttf");
 
     let content = fs.readFileSync(cssOriginPath, 'utf-8');
-    const regex = /@font-face \{(\s+.+){4}\s+\}/g;
+    const regex = /@font-face \{[\s\S|.]+?\}/g;
     const matchs = content.match(regex);
     if (matchs.length > 0) {
         const ttfBase64 = fs.readFileSync(ttfOriginPath, "base64");
